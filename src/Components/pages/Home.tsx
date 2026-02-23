@@ -5,8 +5,9 @@ import {
     Flex,
     Button,
 } from '@chakra-ui/react'
-import { chakra } from "@chakra-ui/react"
-import { motion, isValidMotionProp } from 'framer-motion'
+import type { Variants } from "framer-motion"
+// import { chakra } from "@chakra-ui/react"
+import { motion } from 'framer-motion'
 import AboutCompany from '../Props/AboutCompany'
 import OurServices from '../Props/OurServices'
 import LatestFeatures from '../Props/LatestFeatures'
@@ -15,12 +16,10 @@ import LatestNews from '../Props/LatestNews'
 import OurHistorySection from '../Props/OurHistory'
 import Footer from '../Shared/Footer'
 
-const MotionBox = chakra(motion.div, {
-    shouldForwardProp: (prop) =>
-        isValidMotionProp(prop) || prop === "children",
-})
 
-const containerVariants = {
+const MotionBox = motion(Box)
+
+const containerVariants: Variants = {
     hidden: {},
     visible: {
         transition: {
@@ -29,42 +28,53 @@ const containerVariants = {
     },
 }
 
-const slideUp = {
+const slideUp: Variants = {
     hidden: { opacity: 0, y: 80 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+        transition: {
+            duration: 0.9,
+            ease: [0.16, 1, 0.3, 1],
+        },
     },
 }
 
-const slideLeft = {
+const slideLeft: Variants = {
     hidden: { opacity: 0, x: -100 },
     visible: {
         opacity: 1,
         x: 0,
-        transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+        transition: {
+            duration: 0.9,
+            ease: [0.16, 1, 0.3, 1],
+        },
     },
 }
 
-const slideRight = {
+const slideRight: Variants = {
     hidden: { opacity: 0, x: 100 },
     visible: {
         opacity: 1,
         x: 0,
-        transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+        transition: {
+            duration: 0.9,
+            ease: [0.16, 1, 0.3, 1],
+        },
     },
 }
 
-const fadeScale = {
+const fadeScale: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.8, ease: "easeOut" },
+        transition: {
+            duration: 0.8,
+            ease: "easeOut",
+        },
     },
 }
-
 const Home = () => {
     return (
         <Box bg="white">
@@ -111,7 +121,7 @@ const Home = () => {
                     </Text>
 
                     <Flex gap={4} mt={8}>
-                        <Button rounded="none" bg="#ff7700" color="white">
+                        <Button rounded="none" bg="#4c00ff" color="white">
                             Contact Us
                         </Button>
                         <Button

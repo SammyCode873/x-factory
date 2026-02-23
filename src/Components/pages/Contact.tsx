@@ -22,6 +22,7 @@ import {
 import { FaAngleRight } from 'react-icons/fa6';
 import { FaHome } from 'react-icons/fa';
 import Header from '../Shared/Header';
+import Footer from '../Shared/Footer';
 const Contact = () => {
     const contactInfo = [
         { icon: MdLocationOn, title: "Our Location", detail: "121 King Street, New York, USA" },
@@ -57,7 +58,7 @@ const Contact = () => {
                 </Flex>
             </Flex>
             <Box
-                bgImage="url('YOUR_HERO_IMAGE_URL')"
+                bgImage="url('/bg1.jpeg')"
                 bgSize="cover" bgPos="center" py={32} textAlign="center" color="white" position="relative"
                 _before={{ content: '""', position: 'absolute', inset: 0, bg: 'blackAlpha.600' }}
             >
@@ -116,6 +117,7 @@ const Contact = () => {
 
                 </SimpleGrid>
             </Container>
+            <Footer />
         </Box>
     );
 };

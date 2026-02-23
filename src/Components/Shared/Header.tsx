@@ -8,19 +8,22 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+
+
 function Header() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
-    // Active Link Style Logic
-    const activeStyle = ({ isActive }) => ({
+    const activeStyle = ({ isActive }: { isActive: boolean }) => ({
         color: "white",
         fontWeight: 600,
         textDecoration: "none",
-        borderBottom: isActive ? "2px solid #ff7700" : "2px solid transparent",
+        borderBottom: isActive
+            ? "2px solid #ff7700"
+            : "2px solid transparent",
         paddingBottom: "4px",
-        transition: "all 0.3s ease"
+        transition: "all 0.3s ease",
     });
 
     useEffect(() => {
@@ -64,7 +67,6 @@ function Header() {
                         <Image src="/logo.png" h="40px" objectFit="contain" />
                     </NavLink>
 
-                    {/* Desktop Nav */}
                     <Flex gap={8} align="center" display={{ base: "none", lg: "flex" }}>
                         {navItems.map((item) => (
                             <NavLink key={item.path} to={item.path} style={activeStyle}>
@@ -93,7 +95,6 @@ function Header() {
                     </Flex>
                 </Flex>
 
-                {/* Mobile Trigger */}
                 <IconButton
                     display={{ base: "flex", lg: "none" }}
                     aria-label="menu"
@@ -105,7 +106,6 @@ function Header() {
                     _hover={{ bg: "whiteAlpha.200" }}
                 />
 
-                {/* Mobile Drawer */}
                 <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
                     <DrawerOverlay />
                     <DrawerContent bg="#1a1919" color="white">
